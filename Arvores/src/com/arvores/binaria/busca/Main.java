@@ -34,13 +34,13 @@ public class Main {
         }));
 
         mainMenu.addItem(new SimpleMenuItem("Arvore inicial", () -> {
-            arvore.inserir(30);
-            arvore.inserir(25);
             arvore.inserir(20);
-            arvore.inserir(22);
+            arvore.inserir(15);
+            arvore.inserir(10);
+            arvore.inserir(30);
             arvore.inserir(40);
-            arvore.inserir(27);
-            arvore.inserir(45);
+            arvore.inserir(35);
+            arvore.inserir(5);
         }));
 
         Menu submenu = new Menu("Consultas");
@@ -100,6 +100,9 @@ public class Main {
         }));
         submenu.addItem(new SimpleMenuItem("Tamanho da arvore", () -> {
             System.out.println("\nTamanho da arvore: " + arvore.tamanho());
+        }));
+        submenu.addItem(new SimpleMenuItem("Eh AVL?", () -> {
+            System.out.println("\nArvore eh AVL? " + arvore.ehAVL());
         }));
 
         mainMenu.addItem(submenu);

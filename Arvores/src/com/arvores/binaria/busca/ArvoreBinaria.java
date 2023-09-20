@@ -1,5 +1,7 @@
 package com.arvores.binaria.busca;
 
+import com.arvores.avl.ArvoreAVL;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -432,5 +434,29 @@ public class ArvoreBinaria {
                 return;
             }
         }
+    }
+
+    public boolean ehAVL() {
+        return ehAVL(raiz);
+    }
+
+    private boolean ehAVL(Nodo raiz) {
+        if (raiz == null) {
+            return true;
+        }
+
+        int diferencaAltura = Math.abs(alturaAvl(raiz.esq) - alturaAvl(raiz.dir));
+        if (diferencaAltura > 1) {
+            return false;
+        }
+
+        return ehAVL(raiz.esq) && ehAVL(raiz.dir);
+    }
+
+    private int alturaAvl(Nodo nodo) {
+        if (nodo == null) {
+            return 0;
+        }
+        return Math.max(alturaAvl(nodo.esq), alturaAvl(nodo.dir)) + 1;
     }
 }
